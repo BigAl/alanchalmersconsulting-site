@@ -1,0 +1,18 @@
+# Allowlist: ignore everything, then publish only the site files.
+# Keeps the design concepts, notes (README.md, STYLE_GUIDE.md,
+# domain-summary.md), the .rpm installer and .claude/ out of the repo.
+/*
+!/.gitignore
+!/.nojekyll
+!/CNAME
+!/index.html
+!/404.html
+!/fonts/
+!/benchboss/
+
+# Explicitly never publish (belt and braces)
+*.rpm
+.claude/
+concept-*.html
+index-*.html
+styles-showcase.html
