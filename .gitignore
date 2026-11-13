@@ -9,6 +9,7 @@
 !/404.html
 !/fonts/
 !/benchboss/
+!/cv/
 
 # Explicitly never publish (belt and braces)
 *.rpm

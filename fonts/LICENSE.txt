@@ -1,7 +1,8 @@
-Self-hosted web fonts: Inter, DM Serif Display, JetBrains Mono, Archivo.
+Self-hosted web fonts: Schibsted Grotesk, Archivo.
 Woff2 files from Fontsource (fontsource.org), each font licensed under the SIL Open Font License 1.1 below.
 
-Google Inc.
+Archivo: Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+Schibsted Grotesk: Copyright 2023 The Schibsted-Grotesk Project Authors (https://github.com/schibsted/schibsted-grotesk)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

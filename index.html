@@ -1,423 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alan Chalmers — Engineering Leadership & Platform Architecture</title>
-    <meta name="description" content="Senior technology contractor. Engineering leadership, platform architecture, cloud modernisation.">
-    <link rel="stylesheet" href="/fonts/fonts.css">
-    <style>
-        :root {
-            --bg:     #f6f5f0;
-            --white:  #ffffff;
-            --text:   #1c1c18;
-            --muted:  #5c5c55;   /* ~6:1 on --bg */
-            --faint:  #ddddd5;
-            --accent: #1f5c3a;   /* forest green */
-            --mono:   'JetBrains Mono', monospace;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Chalmers: engineering leader, back on the tools</title>
+<meta name="description" content="Twenty-five years leading engineering teams and designing platforms. Now building real software with AI, and helping clients with architecture and leadership.">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+:root{
+  --paper:#FFFFFF; --wash:#F1F3F7; --ink:#1D2433; --muted:#525C70; --rule:#DDE2EA;
+  --build:#6A3FD9; --build-bg:#EEE8FF;
+  --client:#1F63C9; --client-bg:#E4EEFC;
+  --pitch:#16794A; --pitch-bg:#DFF3E8;
+  --ride:#C2410C; --ride-bg:#FFE8DA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;background:var(--wash);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:var(--client);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--build);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;left:1rem;top:-100px;background:var(--build);color:#fff;padding:.5rem 1rem;z-index:10;font-weight:800;border-radius:6px}
+.skip-link:focus{top:.5rem}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;flex-wrap:wrap;gap:10px}
+.top .name{font-weight:900;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.top ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+.top ul a{color:var(--ink);text-decoration:none;font-weight:600}
+.top ul a:hover{color:var(--build);text-decoration:underline}
 
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 3px;
-            border-radius: 2px;
-        }
+.hero{padding:48px 0 32px;max-width:820px}
+.hero h1{font-size:clamp(2.5rem,7vw,4.6rem);font-weight:900;line-height:1;letter-spacing:-.03em}
+.hero h1 i{font-style:italic;font-weight:800}
+.hero p{margin-top:20px;font-size:1.15rem;color:var(--muted);max-width:56ch}
 
-        .skip-link {
-            position: absolute; left: 1rem; top: -100px;
-            background: var(--accent); color: #fff;
-            padding: 0.5rem 1rem; z-index: 200; text-decoration: none;
-            font-size: 0.85rem;
-        }
-        .skip-link:focus { top: 0.5rem; }
+section{padding:72px 0 0}
+h2{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:900;letter-spacing:-.02em;line-height:1.05}
+#week{padding-top:0}
+#week h2{font-size:1.4rem;letter-spacing:-.01em}
+.lede{color:var(--muted);max-width:60ch;margin-top:10px}
 
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .dot { animation: none !important; }
-        }
+.key{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:8px 0 16px;font-size:.9rem;color:var(--muted)}
+.key li{display:flex;align-items:center;gap:6px}
+.key span{width:12px;height:12px;border-radius:3px;display:inline-block}
 
-        body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 15px;
-            line-height: 1.65;
-        }
+.week{display:grid;grid-template-columns:repeat(7,1fr);background:var(--paper);border:1px solid var(--rule);border-radius:16px;overflow:hidden}
+.day{border-right:1px solid var(--rule);display:flex;flex-direction:column;min-height:380px}
+.day:last-child{border-right:0}
+.day h3{font-size:.95rem;font-weight:800;padding:12px 12px 10px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:6px}
+.day h3 small{font-weight:400;color:var(--muted);font-size:.85rem}
+.day.weekend{background:#FAFBFC}
+.slots{padding:8px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ev{border-radius:8px;padding:8px 10px;font-size:.86rem;line-height:1.35;border-left:4px solid}
+.ev time{display:block;font-size:.75rem;margin-bottom:2px}
+.ev b{display:block;font-weight:800}
+.build{background:var(--build-bg);border-color:var(--build);color:#3B1F8C}
+.client{background:var(--client-bg);border-color:var(--client);color:#123E80}
+.pitch{background:var(--pitch-bg);border-color:var(--pitch);color:#0D4F30}
+.ride{background:var(--ride-bg);border-color:var(--ride);color:#7C2A07}
+.ev a{color:inherit}
+.tall{flex:1}
 
-        /* ── Topbar ── */
-        .topbar {
-            position: sticky;
-            top: 0;
-            background: rgba(246,245,240,0.92);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--faint);
-            z-index: 100;
-            padding: 0 2.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 52px;
-        }
+.route{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:22px 22px 12px;margin-top:20px}
+.route svg{width:100%;height:auto;display:block}
+.route svg text{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;fill:var(--ink)}
+.route svg .yr{fill:var(--muted);font-weight:400;font-size:12px}
+.route svg .you{font-weight:900;font-size:17px;fill:var(--ride)}
+.route figcaption{font-size:.85rem;color:var(--muted);padding:8px 2px 6px}
+.stages{display:none;list-style:none;margin-top:6px;border-top:1px solid var(--rule)}
+.stages li{padding:8px 0;border-bottom:1px solid var(--rule);font-size:.95rem}
+.stages li b{display:inline-block;min-width:3.2rem;color:var(--muted);font-weight:600}
+.stages li:last-child{border:0;color:var(--ride);font-weight:800}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-top:16px}
+.summary div{background:var(--paper);padding:18px 20px}
+.summary dt{font-size:.85rem;color:var(--muted)}
+.summary dd{font-weight:900;font-size:2.2rem;line-height:1.05;letter-spacing:-.02em;margin-top:2px}
+.summary dd small{display:block;font-weight:400;font-size:.85rem;color:var(--muted);letter-spacing:0;margin-top:4px;line-height:1.35}
+.cv-link{margin-top:18px;color:var(--muted)}
+.cv-link a{font-weight:800}
 
-        .topbar-name { font-size: 0.82rem; font-weight: 500; }
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.col{background:var(--paper);border-radius:14px;padding:22px;border-top:5px solid}
+.col h3{font-size:1.15rem;font-weight:800}
+.col p{color:var(--muted);font-size:.96rem;margin-top:6px}
+.col.b{border-color:var(--build)} .col.c{border-color:var(--client)}
 
-        .topbar-links { display: flex; gap: 1.75rem; }
+.aura{margin-top:18px;background:var(--ink);color:#fff;border-radius:14px;padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.aura h3{font-size:2rem;font-weight:900;letter-spacing:-.02em}
+.aura p{flex:1;min-width:260px;color:#D3D8E2}
+.aura a{color:#fff;font-weight:700}
+.aura a:focus-visible{outline-color:#fff}
 
-        .topbar-links a {
-            font-size: 0.78rem;
-            color: var(--muted);
-            text-decoration: none;
-            transition: color 0.15s;
-        }
+.contact{padding:80px 0 96px}
+.contact p{color:var(--muted);margin-top:10px;max-width:52ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;align-items:center}
+.btn{display:inline-block;max-width:100%;min-width:0;background:var(--build);color:#fff;font-weight:800;padding:14px 24px;border-radius:12px;text-decoration:none;overflow-wrap:anywhere;font-size:clamp(.95rem,3.5vw,1.1rem)}
+.btn:hover{background:#5530B8}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:12px 22px}
+.btn.ghost:hover{background:var(--paper)}
 
-        .topbar-links a:hover { color: var(--text); }
+footer{padding:0 0 40px;color:var(--muted);font-size:.88rem}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer a{color:var(--muted)}
 
-        /* ── Hero ── */
-        .hero {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 6rem 2.5rem 5rem;
-            border-bottom: 1px solid var(--faint);
-        }
-
-        .hero-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            line-height: 1.15;
-            color: var(--text);
-            max-width: 600px;
-        }
-
-        h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .hero-sub {
-            font-size: 0.9rem;
-            color: var(--muted);
-            max-width: 500px;
-            line-height: 1.8;
-        }
-
-        .avail {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--accent);
-            border: 1px solid rgba(31,92,58,0.25);
-            padding: 0.3rem 0.65rem;
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-
-        .dot {
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: blink 2.2s ease-in-out infinite;
-        }
-
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-        /* ── Metrics band ── */
-        .metrics-band {
-            background: var(--white);
-            border-bottom: 1px solid var(--faint);
-        }
-
-        .metrics-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .metric {
-            padding: 2rem 1.5rem 2rem 0;
-            border-right: 1px solid var(--faint);
-        }
-
-        .metric:first-child { padding-left: 0; }
-        .metric:last-child { border-right: none; }
-
-        .metric-val {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: 1.9rem;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 0.35rem;
-        }
-
-        .metric-desc {
-            font-size: 0.72rem;
-            color: var(--muted);
-            line-height: 1.4;
-        }
-
-        /* ── Content ── */
-        .content { max-width: 860px; margin: 0 auto; padding: 0 2.5rem; }
-
-        .section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--faint);
-        }
-
-        .section:last-child { border-bottom: none; }
-
-        .section-label {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 400;
-            color: var(--muted);
-            margin-bottom: 2rem;
-        }
-
-        .about-text { font-size: 0.9rem; color: var(--muted); line-height: 1.85; max-width: 580px; }
-        .about-text + .about-text { margin-top: 0.9rem; }
-
-        .svc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
-
-        .svc-item { padding: 1rem 0; border-bottom: 1px solid var(--faint); }
-
-        .svc-name { font-size: 0.88rem; font-weight: 500; margin-bottom: 0.25rem; }
-
-        .svc-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
-
-        .skill-rows { max-width: 680px; }
-
-        .skill-row {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--faint);
-            font-size: 0.8rem;
-            align-items: baseline;
-        }
-
-        .skill-row:first-child { border-top: 1px solid var(--faint); }
-
-        .skill-key { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); width: 110px; flex-shrink: 0; }
-
-        .skill-val { color: var(--text); }
-
-        .work-item { padding: 1.75rem 0; border-bottom: 1px solid var(--faint); display: grid; grid-template-columns: 1fr 90px; gap: 0 1.5rem; }
-        .work-item:first-child { padding-top: 0; }
-        .work-item:last-child { border-bottom: none; }
-
-        .work-role { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.65rem; }
-
-        .work-period { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); text-align: right; padding-top: 0.1rem; }
-
-        .work-bullets { list-style: none; grid-column: 1; }
-
-        .work-bullets li {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-bottom: 0.25rem;
-            padding-left: 0.9rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .work-bullets li::before { content: "·"; position: absolute; left: 0.15rem; color: var(--faint); }
-
-        .contact-intro { font-size: 0.9rem; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 2rem; }
-
-        .contact-btn {
-            display: inline-block;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: #fff;
-            background: var(--accent);
-            padding: 0.7rem 1.5rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: opacity 0.15s;
-        }
-
-        .contact-btn:hover { opacity: 0.85; }
-        a.contact-btn { text-decoration: none; overflow-wrap: anywhere; max-width: 100%; }
-
-        .contact-meta { margin-top: 1.25rem; font-size: 0.78rem; color: var(--muted); }
-
-        .contact-meta a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
-
-        /* ── Apps ── */
-        .app-card {
-            display: flex; gap: 1.25rem; align-items: center;
-            max-width: 580px; padding: 1.25rem;
-            background: var(--white); border: 1px solid var(--faint); border-radius: 4px;
-            color: var(--text); text-decoration: none;
-        }
-        .app-card:hover { border-color: var(--accent); }
-        .app-card img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
-        .app-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .app-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-        .app-more { font-size: 0.78rem; color: var(--accent); margin-top: 0.35rem; font-weight: 500; }
-
-        footer { max-width: 860px; margin: 0 auto; padding: 2.5rem 2.5rem 4rem; font-size: 0.72rem; color: var(--muted); }
-
-        @media (max-width: 640px) {
-            .topbar { padding: 0 1.25rem; }
-            .topbar-links { gap: 1rem; }
-            .topbar-links a:not(.keep) { display: none; }
-            .app-card { align-items: flex-start; }
-            .app-card img { width: 52px; height: 52px; border-radius: 12px; }
-            .hero { padding: 4rem 1.5rem 3rem; }
-            .hero-top { flex-direction: column; gap: 1rem; }
-            .metrics-inner { grid-template-columns: 1fr 1fr; }
-            .metric { padding: 1.5rem 1rem 1.5rem 0; }
-            .content { padding: 0 1.5rem; }
-            .svc-list { grid-template-columns: 1fr; }
-            .work-item { grid-template-columns: 1fr; }
-            .work-period { text-align: left; }
-        }
-    </style>
+@media (max-width:900px){
+  .week{grid-template-columns:1fr}
+  .day{border-right:0;border-bottom:1px solid var(--rule);min-height:0}
+  .day:last-child{border-bottom:0}
+  .tall{flex:none}
+  .cols{grid-template-columns:1fr 1fr}
+  .summary{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .route svg .lbl{display:none}
+  .stages{display:block}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .cols{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-
 <a class="skip-link" href="#main">Skip to content</a>
-
-<header class="topbar">
-    <span class="topbar-name">Alan Chalmers</span>
-    <nav class="topbar-links" aria-label="Sections">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#skills">Skills</a>
-        <a href="#work">Work</a>
-        <a href="#apps" class="keep">Apps</a>
-        <a href="#contact" class="keep">Contact</a>
-    </nav>
+<div class="wrap">
+<header>
+  <nav class="top" aria-label="Main">
+    <a class="name" href="/">Alan Chalmers</a>
+    <ul>
+      <li><a href="#week">The week</a></li>
+      <li><a href="#route">How I got here</a></li>
+      <li><a href="/cv/">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main id="main">
 <div class="hero">
-    <div class="hero-top">
-        <h1><em>Engineering leadership</em><br>and platform architecture<br>for organisations at scale.</h1>
-        <div class="avail"><span class="dot"></span>available</div>
-    </div>
-    <p class="hero-sub">Senior technology contractor with 20+ years across financial services, SaaS, streaming, and regulated environments. Available for contract, consulting, and advisory roles.</p>
+  <h1>Weekdays I build. Weekends I <i>coach</i> and ride.</h1>
+  <p>Twenty-five years leading engineering teams and designing platforms. Now back on the tools: building real software with AI, and helping clients with the architecture and leadership side.</p>
 </div>
 
-<div class="metrics-band">
-    <div class="metrics-inner">
-        <div class="metric"><div class="metric-val">20+</div><div class="metric-desc">years technology leadership</div></div>
-        <div class="metric"><div class="metric-val">5–7×</div><div class="metric-desc">delivery via AI-assisted methodology</div></div>
-        <div class="metric"><div class="metric-val">85%</div><div class="metric-desc">IaC code reduction</div></div>
-        <div class="metric"><div class="metric-val">95%+</div><div class="metric-desc">team retention rate</div></div>
-    </div>
-</div>
+<section id="week" aria-labelledby="week-h">
+  <h2 id="week-h">A fairly typical week</h2>
+  <ul class="key" aria-label="Colour key">
+    <li><span style="background:var(--build)"></span>Building</li>
+    <li><span style="background:var(--client)"></span>Client work</li>
+    <li><span style="background:var(--pitch)"></span>Football</li>
+    <li><span style="background:var(--ride)"></span>Moving</li>
+  </ul>
+  <div class="week">
+    <div class="day"><h3>Mon <small>focus</small></h3><div class="slots">
+      <div class="ev ride"><time>6:00</time><b>Dog walk</b>Every day starts here. Non-negotiable, says the dog.</div>
+      <div class="ev client tall"><time>9:00</time><b>Platform review</b>Untangling someone's AWS or Azure estate</div>
+    </div></div>
+    <div class="day"><h3>Tue <small>ship</small></h3><div class="slots">
+      <div class="ev build tall"><time>8:30</time><b><a href="/benchboss/">BenchBoss</a> release</b>Fair minutes for every kid. Claude Code drafts it, I review it like production.</div>
+      <div class="ev pitch"><time>17:30</time><b>Training</b>Cones out, bibs on</div>
+    </div></div>
+    <div class="day"><h3>Wed <small>advise</small></h3><div class="slots">
+      <div class="ev client"><time>10:00</time><b>Leadership coaching</b>Engineering managers, roadmaps, delivery</div>
+      <div class="ev build tall"><time>13:00</time><b>Something for trial day</b>A local club's selection process, off the clipboard. Not on Strava yet, as it were.</div>
+    </div></div>
+    <div class="day"><h3>Thu <small>study</small></h3><div class="slots">
+      <div class="ev ride"><time>6:45</time><b>Resistance bands</b>Strength work so the gravel doesn't win</div>
+      <div class="ev build"><time>9:00</time><b>Something for the garage</b>My bikes need a better memory than mine. Work in progress.</div>
+      <div class="ev pitch tall"><time>19:00</time><b>Coaching coursework</b>Session plans, game models, and homework I actually want to do</div>
+    </div></div>
+    <div class="day"><h3>Fri <small>tinker</small></h3><div class="slots">
+      <div class="ev build tall"><time>9:00</time><b>Pull something apart</b>New models, OpenCode experiments, whatever's interesting. Old UNIX habits die hard.</div>
+    </div></div>
+    <div class="day weekend"><h3>Sat <small>match day</small></h3><div class="slots">
+      <div class="ev pitch tall"><time>8:00</time><b>Kick-off</b>Juniors. Every kid gets their minutes (there's an app for that).</div>
+    </div></div>
+    <div class="day weekend"><h3>Sun <small>long ride</small></h3><div class="slots">
+      <div class="ev ride tall"><time>6:30</time><b>Long gravel ride</b>Dirt roads, headwind, and the best thinking time of the week. Road bike if it's been raining.</div>
+    </div></div>
+  </div>
+</section>
 
-<div class="content">
+<section id="route" aria-labelledby="route-h">
+  <h2 id="route-h">How I got here</h2>
+  <p class="lede">Twenty-five years, drawn the way I'd draw a ride: a long, steady climb with a few gravel sections, from racking Sun boxes, through big-bank finance at Citigroup, RBS and ANZ, to leading engineering teams. And now, building again.</p>
+  <figure class="route">
+    <svg viewBox="0 0 1000 230" role="img" aria-label="Career drawn as a ride elevation profile: Sun, Solaris and SPARC systems from 2000, then big-bank finance at Citigroup, RBS and ANZ, cloud platforms, engineering leadership, and a summit in 2026 marked 'you are here: building again'.">
+      <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A3FD9" stop-opacity=".28"/><stop offset="1" stop-color="#6A3FD9" stop-opacity=".03"/></linearGradient></defs>
+      <g stroke="#E8EBF1" stroke-width="1"><line x1="0" y1="70" x2="1000" y2="70"/><line x1="0" y1="120" x2="1000" y2="120"/><line x1="0" y1="170" x2="1000" y2="170"/></g>
+      <path d="M0 200 L80 192 L160 180 L230 186 L300 160 L380 148 L440 156 L520 122 L600 106 L660 114 L740 84 L800 90 L870 62 L930 50 L1000 44 L1000 210 L0 210 Z" fill="url(#fill)"/>
+      <path d="M0 200 L80 192 L160 180 L230 186 L300 160 L380 148 L440 156 L520 122 L600 106 L660 114 L740 84 L800 90 L870 62 L930 50 L1000 44" fill="none" stroke="#1D2433" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M160 180 L230 186 L300 160 M600 106 L660 114 L740 84" fill="none" stroke="#C2410C" stroke-width="7" stroke-dasharray="0 11" stroke-linecap="round"/>
+      <g fill="#fff" stroke="#1D2433" stroke-width="2"><circle cx="80" cy="192" r="5"/><circle cx="300" cy="160" r="5"/><circle cx="520" cy="122" r="5"/><circle cx="740" cy="84" r="5"/></g>
+      <circle cx="930" cy="50" r="8" fill="#C2410C" stroke="#fff" stroke-width="3"/>
+      <g class="lbl">
+        <text x="80" y="176" text-anchor="middle">Sun &amp; Solaris</text>
+        <text x="300" y="144" text-anchor="middle">Big banks</text>
+        <text x="520" y="106" text-anchor="middle">Cloud platforms</text>
+        <text x="740" y="68" text-anchor="middle">Engineering leadership</text>
+        <text class="you" x="930" y="30" text-anchor="end">You are here: building again</text>
+        <text class="yr" x="80" y="226" text-anchor="middle">2000</text><text class="yr" x="520" y="226" text-anchor="middle">2013</text><text class="yr" x="930" y="226" text-anchor="middle">2026</text>
+      </g>
+    </svg>
+    <ol class="stages">
+      <li><b>2000</b>Sun &amp; Solaris on SPARC</li>
+      <li><b></b>Big banks</li>
+      <li><b>2013</b>Cloud platforms</li>
+      <li><b></b>Engineering leadership</li>
+      <li><b>2026</b>You are here: building again</li>
+    </ol>
+    <figcaption>Not to scale. The dotted orange bits were gravel.</figcaption>
+  </figure>
+  <dl class="summary">
+    <div><dt>Distance</dt><dd>25 yrs<small>from SPARC boxes to AI</small></dd></div>
+    <div><dt>Avg speed</dt><dd>5–7×<small>delivery with AI in the bunch</small></dd></div>
+    <div><dt>Bunch size</dt><dd>5 → 20<small>engineers grown, almost nobody dropped</small></dd></div>
+    <div><dt>Weight saved</dt><dd>85%<small>infrastructure code cut on a migration</small></dd></div>
+  </dl>
+  <p class="cv-link">Prefer the formal version? <a href="/cv/">Read the full CV</a>.</p>
+</section>
 
-    <div class="section" id="about">
-        <h2 class="section-label">About</h2>
-        <p class="about-text">I operate at the intersection of engineering leadership and platform architecture — building teams, designing systems, and driving delivery across complex organisations.</p>
-        <p class="about-text">Comfortable across the full stack: from AWS multi-account infrastructure and Kubernetes down to Go backends and React frontends. Recent focus on cloud-native architecture, AI-assisted development, and platform modernisation at scale.</p>
-    </div>
+<section id="what" aria-labelledby="what-h">
+  <h2 id="what-h">What fills the weekdays</h2>
+  <div class="cols">
+    <div class="col b"><h3>Hands-on building</h3><p>Apps and tools built with Claude Code and OpenCode, steered by twenty-five years of knowing what breaks in production.</p></div>
+    <div class="col c"><h3>Platform &amp; cloud</h3><p>AWS and Azure, Kubernetes, OpenTofu, CI/CD, security and compliance that passes audit.</p></div>
+    <div class="col c"><h3>Engineering leadership</h3><p>Building teams, fixing delivery, turning stalled roadmaps into shipped ones.</p></div>
+    <div class="col b"><h3>AI adoption</h3><p>Getting teams genuinely faster with AI, without trading away quality or security.</p></div>
+  </div>
+  <div class="aura">
+    <h3>Aura</h3>
+    <p>Previously head of engineering at <a href="https://www.youtube.com/@this_is_aura">Aura</a>, a streaming platform that played like a video game. Live NBA streaming into Australia, a multi-camera Melbourne Cup app with the VRC, and interactive fan apps. <a href="https://www.youtube.com/watch?v=hYINfD77_-0">Watch the 2022 reel</a>.</p>
+  </div>
+</section>
 
-    <div class="section" id="services">
-        <h2 class="section-label">Services</h2>
-        <ul class="svc-list">
-            <li class="svc-item"><div class="svc-name">Engineering Leadership</div><div class="svc-desc">Team building, delivery culture, roadmap alignment, distributed leadership.</div></li>
-            <li class="svc-item"><div class="svc-name">Platform & Cloud Architecture</div><div class="svc-desc">AWS multi-account, IaC, Kubernetes, CI/CD, Well-Architected reviews.</div></li>
-            <li class="svc-item"><div class="svc-name">Digital Transformation</div><div class="svc-desc">Cloud migration, legacy modernisation, SRE, observability, compliance.</div></li>
-            <li class="svc-item"><div class="svc-name">Technical Advisory</div><div class="svc-desc">Platform reviews, vendor evaluation, FinOps, scaling strategy.</div></li>
-            <li class="svc-item"><div class="svc-name">Full-Stack Development</div><div class="svc-desc">Go, Python, TypeScript, React. APIs, data pipelines, system architecture.</div></li>
-            <li class="svc-item"><div class="svc-name">AI / ML Integration</div><div class="svc-desc">GenAI adoption, LLM & RAG architectures, AI-assisted engineering workflows.</div></li>
-        </ul>
-    </div>
-
-    <div class="section" id="skills">
-        <h2 class="section-label">Skills</h2>
-        <div class="skill-rows">
-            <div class="skill-row"><span class="skill-key">cloud</span><span class="skill-val">AWS · Azure · GCP · Kubernetes · OpenTofu · Terraform · Pulumi · FinOps</span></div>
-            <div class="skill-row"><span class="skill-key">languages</span><span class="skill-val">Go · Python · TypeScript · C#/.NET · React · Node.js · Blazor</span></div>
-            <div class="skill-row"><span class="skill-key">platform</span><span class="skill-val">Microservices · SRE · Observability · CI/CD · IaC · Incident Management</span></div>
-            <div class="skill-row"><span class="skill-key">leadership</span><span class="skill-val">Team Scaling · Agile · DORA Metrics · Distributed Teams · Stakeholder Mgmt</span></div>
-            <div class="skill-row"><span class="skill-key">compliance</span><span class="skill-val">PCI-DSS · IRAP · FedRAMP · ISO 27001 · SOC 2 · Zero Trust · CIS/NIST</span></div>
-            <div class="skill-row"><span class="skill-key">industries</span><span class="skill-val">Financial Services · SaaS · Payments · Streaming · Wagering · Regulated Envs</span></div>
-        </div>
-    </div>
-
-    <div class="section" id="work">
-        <h2 class="section-label">Recent Work</h2>
-        <div class="work-item">
-            <div class="work-role">Cloud Migration Lead</div>
-            <div class="work-period">2024–2025</div>
-            <ul class="work-bullets">
-                <li>Multi-account AWS with Transit Gateway and hybrid connectivity</li>
-                <li>8 full-stack apps migrated with full IaC — 85% reduction in infrastructure code</li>
-                <li>AI-assisted methodology delivering 5–7× faster delivery</li>
-            </ul>
-        </div>
-        <div class="work-item">
-            <div class="work-role">Head of Technology — Growth-Stage SaaS</div>
-            <div class="work-period">2023–2024</div>
-            <ul class="work-bullets">
-                <li>Transformed stalled rebuild into a structured, deliverable roadmap</li>
-                <li>80% WIP reduction across cross-functional Agile teams</li>
-                <li>Automated PCI-compliant payment processing workflows</li>
-            </ul>
-        </div>
-        <div class="work-item">
-            <div class="work-role">Head of Engineering — Streaming Platform</div>
-            <div class="work-period">2021–2023</div>
-            <ul class="work-bullets">
-                <li>Launched serverless OTT platform from zero to production scale</li>
-                <li>Grew engineering team 5 → 20 with 95%+ retention</li>
-                <li>AI-powered mobile UI framework — 37% conversion uplift</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="section" id="apps">
-        <h2 class="section-label">Apps</h2>
-        <a class="app-card" href="/benchboss/">
-            <img src="/benchboss/icon-192.png" alt="" width="64" height="64">
-            <div>
-                <div class="app-name">BenchBoss</div>
-                <div class="app-desc">Fair playing time and substitutions for youth football coaches. Free Android app, no ads, no tracking.</div>
-                <div class="app-more">About BenchBoss →</div>
-            </div>
-        </a>
-    </div>
-
-    <div class="section" id="contact">
-        <h2 class="section-label">Contact</h2>
-        <p class="contact-intro">Available for contract work, consulting, and select full-time roles. Platform architecture, engineering leadership, or technical advisory — get in touch.</p>
-        <a class="contact-btn" href="mailto:hello@alanchalmersconsulting.com.au">hello@alanchalmersconsulting.com.au</a>
-        <div class="contact-meta">
-            <a href="https://www.linkedin.com/in/alanchalmers" rel="noopener">LinkedIn</a>
-            &nbsp;·&nbsp; Australia · remote-first
-        </div>
-    </div>
-
-</div>
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">Need someone on the tools, or in the room?</h2>
+  <p>Contract, consulting and advisory work in platform, cloud, AI and engineering leadership. Or an idea that needs building.</p>
+  <div class="actions">
+    <a class="btn" href="mailto:hello@alanchalmersconsulting.com.au">hello@<wbr>alanchalmersconsulting.com.au</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/alanchalmers">LinkedIn</a>
+  </div>
+</section>
 </main>
 
-<footer>&copy; 2026 Alan Chalmers Consulting</footer>
-
+<footer>
+  <ul>
+    <li>© 2026 Alan Chalmers Consulting</li>
+    <li><a href="/cv/">CV</a></li>
+    <li><a href="https://www.linkedin.com/in/alanchalmers">LinkedIn</a></li>
+    <li><a href="/benchboss/">BenchBoss</a></li>
+  </ul>
+</footer>
+</div>
 </body>
 </html>

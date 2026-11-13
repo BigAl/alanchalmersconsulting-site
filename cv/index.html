@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Chalmers: CV</title>
+<meta name="description" content="CV of Alan Chalmers: engineering leadership, platform and cloud architecture, and hands-on AI-assisted engineering across finance, payments, streaming and regulated environments.">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+:root{
+  --paper:#FFFFFF; --wash:#F1F3F7; --ink:#1D2433; --muted:#525C70; --rule:#DDE2EA;
+  --build:#6A3FD9; --client:#1F63C9; --ride:#C2410C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;background:var(--wash);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:var(--client);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--build);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;left:1rem;top:-100px;background:var(--build);color:#fff;padding:.5rem 1rem;z-index:10;font-weight:800;border-radius:6px}
+.skip-link:focus{top:.5rem}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;flex-wrap:wrap;gap:10px}
+.top .name{font-weight:900;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.top ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+.top ul a{color:var(--ink);text-decoration:none;font-weight:600}
+.top ul a:hover{color:var(--build);text-decoration:underline}
+
+.sheet{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:44px 48px;margin:12px 0 40px}
+h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:900;letter-spacing:-.03em;line-height:1}
+.role-line{font-size:1.15rem;color:var(--muted);margin-top:8px}
+.contact-line{list-style:none;display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:14px;font-size:.95rem}
+.contact-line li{overflow-wrap:anywhere}
+
+h2{font-size:1.35rem;font-weight:900;letter-spacing:-.01em;margin:40px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--build)}
+.summary p + p{margin-top:12px}
+.summary p{max-width:68ch}
+
+.job{padding:18px 0;border-bottom:1px solid var(--rule)}
+.job:last-of-type{border-bottom:0}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:4px 16px;flex-wrap:wrap}
+.job h3{font-size:1.1rem;font-weight:800;line-height:1.3}
+.job h3 span{font-weight:400;color:var(--muted)}
+.job time, .job .when{font-size:.92rem;color:var(--muted);white-space:nowrap}
+.job > p{margin-top:6px;color:var(--muted);max-width:70ch}
+.job h4{font-size:1rem;font-weight:800;margin-top:14px}
+.job h4 + .when{display:block}
+.job ul{margin:8px 0 0 1.2rem}
+.job li{margin:4px 0;max-width:70ch}
+.job li::marker{color:var(--build)}
+
+.earlier{list-style:none}
+.earlier li{padding:10px 0;border-bottom:1px solid var(--rule)}
+.earlier li:last-child{border:0}
+.earlier b{font-weight:800}
+.earlier span{color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:max-content 1fr;gap:8px 20px}
+.skills dt{font-weight:800}
+.skills dd{color:var(--muted)}
+
+footer{padding:0 0 40px;color:var(--muted);font-size:.88rem}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer a{color:var(--muted)}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .sheet{padding:26px 20px;border-radius:12px}
+  .skills{grid-template-columns:1fr;gap:2px}
+  .skills dd{margin-bottom:10px}
+}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .top,.skip-link,footer{display:none}
+  .wrap{max-width:none;padding:0}
+  .sheet{border:0;padding:0;margin:0}
+  a{color:var(--ink);text-decoration:none}
+  .job{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="wrap">
+<header>
+  <nav class="top" aria-label="Main">
+    <a class="name" href="/">Alan Chalmers</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#week">The week</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="sheet">
+  <h1>Alan Chalmers</h1>
+  <p class="role-line">Engineering leader, platform architect, and hands-on builder</p>
+  <ul class="contact-line">
+    <li><a href="mailto:hello@alanchalmersconsulting.com.au">hello@<wbr>alanchalmersconsulting.com.au</a></li>
+    <li><a href="https://www.linkedin.com/in/alanchalmers">linkedin.com/in/alanchalmers</a></li>
+    <li>Australia, remote-first</li>
+  </ul>
+
+  <section class="summary" aria-labelledby="summary-h">
+    <h2 id="summary-h">Summary</h2>
+    <p>Technology leader with over twenty-five years in engineering, from Sun Solaris systems and big-bank infrastructure to heading engineering for streaming, payments and SaaS platforms. I build teams that own their outcomes, design platforms that hold up in regulated environments, and stay close enough to the code to know what good looks like.</p>
+    <p>I'm now working hands-on again, building production software with AI coding agents while keeping the architecture, security and review discipline that regulated platforms need. I take on contract, consulting and advisory work in platform and cloud architecture, engineering leadership and AI adoption.</p>
+  </section>
+
+  <section aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+
+    <article class="job">
+      <div class="job-head"><h3>Principal Consultant <span>Alan Chalmers Consulting</span></h3><span class="when">Jul 2025 – present</span></div>
+
+      <h4>Lead Backend Engineer, healthcare patient portal <span style="font-weight:400;color:var(--muted)">(via a Sydney digital agency)</span></h4>
+      <span class="when">Mar 2026 – Sep 2026</span>
+      <ul>
+        <li>Sole backend engineer on a patient-facing pharmacy platform. Led a complete, security-first rebuild (NestJS, TypeScript strict) delivering a HIPAA-aligned platform on Azure.</li>
+        <li>Built security into the framework rather than individual endpoints: global authorisation, PHI-scrubbing logs and a write-only audit trail.</li>
+        <li>Reverse-engineered and documented a large undocumented legacy database, then integrated it safely through a typed anti-corruption layer.</li>
+        <li>Built CI/CD and infrastructure as code from scratch: GitHub Actions with OIDC federation, coverage gates, secret scanning, post-deploy E2E smoke tests and DAST scanning across dev, staging and production.</li>
+        <li>Wrote implementation specs designed to be executed by AI coding agents, sustaining solo delivery of an 8-week rebuild scope.</li>
+      </ul>
+
+      <h4>Lead Cloud Architect &amp; DevOps Engineer <span style="font-weight:400;color:var(--muted)">(<a href="https://www.id.com.au/">.id, Informed Decisions</a>, contract)</span></h4>
+      <span class="when">Aug 2025 – Dec 2025</span>
+      <ul>
+        <li>Led .id's first move off-premises through the AWS Migration Acceleration Program: multi-account AWS architecture aligned to the Well-Architected Framework, with Transit Gateway and site-to-site VPN for hybrid connectivity.</li>
+        <li>Built reusable Terraform platform modules that cut infrastructure code by 85% and set the standard ECS Fargate deployment pattern for the business.</li>
+        <li>Migrated 8 applications (.NET 8, Blazor, Python, React) with full CI/CD via GitHub Actions and OIDC, and removed all hardcoded credentials.</li>
+        <li>Developed and wrote up an AI-assisted migration method that cut typical service migrations from 40–60 hours to 8–12.</li>
+        <li>Kept Azure AD, Service Bus, Storage and SharePoint integrations working across clouds, and handed over to a newly hired platform team.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Head of Viva Labs <span><a href="https://vivaleisure.group/">Viva Leisure</a> (ASX:VVA)</span></h3><span class="when">Jan 2025 – Jul 2025</span></div>
+      <p>Led the technology arm of one of Australia's largest fitness groups through a reset of delivery and platform stability.</p>
+      <ul>
+        <li>Appointed an interim leadership team across engineering, product and support, and formed cross-functional Agile squads.</li>
+        <li>Turned a stalled platform rebuild into a structured, deliverable roadmap, cutting work in progress by 80%.</li>
+        <li>Automated a manual payments workflow in a PCI-compliant environment, freeing a developer from daily and weekend manual work.</li>
+        <li>Introduced generative AI tooling (Claude Code, Cursor), AWS Well-Architected reviews, blameless postmortems and incident management.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Head of Engineering <span><a href="https://www.youtube.com/@this_is_aura">Aura Labs</a></span></h3><span class="when">Oct 2020 – Dec 2024</span></div>
+      <p>Aura streams content blended with live data and interaction across mobile, web and connected TV. Led three engineering teams and a product team, growing engineering from 5 to 20.</p>
+      <ul>
+        <li>Delivered the Missing in Action app, streaming NBA games into Australia on a fully serverless, event-driven AWS OTT platform with live stats, chat and commerce.</li>
+        <li>Delivered a first-of-its-kind multi-camera app for the VRC Melbourne Cup Carnival, and platform work for Tabcorp, Fanatics and the VRC.</li>
+        <li>Built a server-driven mobile UI framework (Flutter) that adapted to user behaviour, driving a 37% uplift in bet conversions during the Melbourne Cup Carnival.</li>
+        <li>Delivered an LLM and RAG proof of concept for a major insurer, cutting RFP response time from six weeks to under a day.</li>
+        <li>Designed a multi-account AWS structure with Pulumi and AWS CDK, and moved platform components to Go.</li>
+        <li>Built a skills matrix and growth plan that let us hire juniors and promote from within: over 95% retention and the highest engagement scores in the company.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Development Manager <span><a href="https://www.myob.com/au">MYOB</a></span></h3><span class="when">Dec 2019 – Oct 2020</span></div>
+      <p>Led engineering for the Financial Services Division, serving over a million businesses, with four offshore and four local delivery managers.</p>
+      <ul>
+        <li>Refocused the portfolio onto high-impact, strategically aligned work.</li>
+        <li>Onboarded four offshore Agile teams and embedded DORA metrics.</li>
+        <li>Built a PCI-compliant engineering and controls framework for lending and credit services.</li>
+        <li>Ran a division-wide uplift in cloud, platform engineering and SRE practice.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Engineering Manager <span><a href="https://www.hellozai.com/">Assembly Payments</a></span></h3><span class="when">Oct 2017 – Nov 2019</span></div>
+      <p>Head of Technology and Head of Security for a 24/7 payments API platform, leading three cross-functional squads.</p>
+      <ul>
+        <li>Delivered Australia's first non-bank real-time payments API.</li>
+        <li>Cut AWS spend by 70% through a Well-Architected review and FinOps.</li>
+        <li>Moved releases from fortnightly at 20% success to on-demand at 99% success.</li>
+        <li>Cut SLI error rates from about 5% to under 0.01%, and halved PCI DSS audit time through compliance automation.</li>
+        <li>Moved performance-critical payment components from Ruby to Go, and reached 100% infrastructure as code.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Platform Engineering Manager <span><a href="https://www.oracle.com/au/construction-engineering/aconex/">Aconex</a></span></h3><span class="when">Nov 2016 – Sep 2017</span></div>
+      <ul>
+        <li>Partnered with the CTO on the move from on-premises infrastructure to a cloud-native SaaS platform on AWS, built fully as code.</li>
+        <li>Recruited a new cloud services team and set up IRAP and FedRAMP compliance readiness.</li>
+        <li>Built an Azure Stack proof of concept for regions without public cloud.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Team Lead, Finance &amp; Business Services <span><a href="https://www.rea-group.com/">REA Group</a> (contract)</span></h3><span class="when">Jul 2016 – Nov 2016</span></div>
+      <ul><li>Migrated a .NET finance application and SQL Server database to AWS with fully automated CloudFormation deployment.</li></ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Senior Engineering Lead, Special Projects <span><a href="https://www.sportsbet.com.au/">Sportsbet</a> (contract)</span></h3><span class="when">Jul 2014 – Jul 2016</span></div>
+      <ul>
+        <li>Scaled the platform from 2,800 to 18,000 bets a minute.</li>
+        <li>Cut deployment time by 90% with automated CI/CD and CIS-aligned SOEs, and contributed to open-source Puppet modules.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Team Lead DevOps <span><a href="https://www.betfair.com.au/">Betfair</a></span></h3><span class="when">May 2013 – Jan 2014</span></div>
+      <ul><li>Led DevOps for a global real-time betting platform, delivering the Cisco networking and compute platform to virtualise it on VMware.</li></ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Team Lead System Engineering, Cloud Services <span><a href="https://www.nbnco.com.au/">NBN Co</a></span></h3><span class="when">Apr 2011 – May 2013</span></div>
+      <ul>
+        <li>Built a greenfield enterprise cloud platform: 3,000 VMs for 125 platform owners in 10 months.</li>
+        <li>Cut infrastructure lead times from three months to under a week, leading a team of 12.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Senior Solution Designer <span>Sensis (contract)</span></h3><span class="when">Oct 2010 – Mar 2011</span></div>
+      <ul><li>Infrastructure delivery for whereis.com.</li></ul>
+    </article>
+
+    <article class="job">
+      <div class="job-head"><h3>Senior UNIX Specialist <span><a href="https://www.anz.com.au/">ANZ</a> (contract)</span></h3><span class="when">May 2007 – Sep 2010</span></div>
+      <ul>
+        <li>Delivered the Asia payments gateways, key to ANZ's regional strategy, three months ahead of schedule.</li>
+        <li>Built the first virtualised infrastructure in ANZ Markets Technology.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="earlier-h">
+    <h2 id="earlier-h">Earlier career</h2>
+    <ul class="earlier">
+      <li><b>Vice President of Technology, Citigroup Private Bank</b> <span>(Zurich, 2005–2006).</span> Led EMEA technology operations, fixed SOX compliance after two failed audits, and consolidated data centres across EMEA.</li>
+      <li><b>Team Leader, Technical Group, Royal Bank of Scotland</b> <span>(2004–2005).</span> Migrated around 350 servers between data centres in seven months.</li>
+      <li><b>Senior Technical Instructor, Sun Microsystems</b> <span>(2000–2002).</span> Top Instructor Award three quarters running, and the first in Sun Australia to teach Solaris performance tuning and advanced troubleshooting.</li>
+      <li><b>Avionics Technician (Sergeant), Royal Australian Air Force</b> <span>(12 years).</span> Radio technician apprenticeship and leadership training, finishing on Sun and DEC UNIX systems.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="skills-h">
+    <h2 id="skills-h">Skills</h2>
+    <dl class="skills">
+      <dt>Cloud &amp; infrastructure</dt><dd>AWS, Azure, GCP, Kubernetes, Docker, OpenTofu, Terraform, Pulumi, AWS CDK, Ansible</dd>
+      <dt>AI engineering</dt><dd>Claude Code, OpenCode, Cursor, LLM and RAG architectures, spec-driven agent workflows</dd>
+      <dt>Languages</dt><dd>Go, TypeScript, Python, C#/.NET, NestJS, Flutter, React, Bash</dd>
+      <dt>Architecture</dt><dd>Microservices, modular monoliths, event-driven, serverless, REST APIs</dd>
+      <dt>Data</dt><dd>PostgreSQL, MySQL, DynamoDB, Redis, Kafka, Kinesis, Snowflake</dd>
+      <dt>Delivery &amp; SRE</dt><dd>GitHub Actions, Buildkite, GitOps, observability (Grafana, Datadog, Prometheus), SLOs, incident management</dd>
+      <dt>Security &amp; compliance</dt><dd>PCI DSS, HIPAA, IRAP, FedRAMP, ISO 27001, SOC 2, SOX, CIS, NIST, Zero Trust</dd>
+      <dt>Leadership</dt><dd>Agile, DORA metrics, FinOps, OKRs, AWS Well-Architected, distributed teams</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="edu-h">
+    <h2 id="edu-h">Education &amp; certifications</h2>
+    <ul class="earlier">
+      <li><b>Master of Information Systems</b>, Swinburne University of Technology</li>
+      <li>AWS Certified Solutions Architect and Developer; Certified Kubernetes Administrator (CKA); Microsoft Certified: Azure Fundamentals</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <ul>
+    <li>© 2026 Alan Chalmers Consulting</li>
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www.linkedin.com/in/alanchalmers">LinkedIn</a></li>
+  </ul>
+</footer>
+</div>
+</body>
+</html>
