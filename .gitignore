@@ -9,6 +9,7 @@
 !/404.html
 !/fonts/
 !/benchboss/
+!/apps/
 !/cv/
 
 # Explicitly never publish (belt and braces)
